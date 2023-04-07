@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import styles from './Menu.module.css'; 
 import cn from 'classnames';
 import { AppContext } from '../../context/app.context';
@@ -17,8 +17,8 @@ export const Menu = () : JSX.Element => {
         m.isOpened = !m.isOpened;
       }
       return m;
-    }))
-  }
+    }));
+  };
 
   const buildFirstLevel = () => {
     return (
@@ -52,15 +52,14 @@ export const Menu = () : JSX.Element => {
           }
           return (
             <div key={m._id.secondCategory}>
-              <div
-                className={styles.secondLevel}
-                onClick={() => openSecondLevel(m._id.secondCategory)}
-              >{m._id.secondCategory}</div>
-              <div className={cn(styles.secondLevelBlock, {
-                [styles.secondLevelBlockOpened] : m.isOpened
-              })}>{buildThirdLevel(m.pages,  menuItem.route)}</div>
+              <div className={styles.secondLevel} onClick={() => openSecondLevel(m._id.secondCategory)}>
+                {m._id.secondCategory}
+              </div>
+              <div className={cn(styles.secondLevelBlock, { [styles.secondLevelBlockOpened] : m.isOpened })}>
+                {buildThirdLevel(m.pages,  menuItem.route)}
+              </div>
             </div>
-          )
+          );
         })}
       </div>
     );
@@ -69,9 +68,9 @@ export const Menu = () : JSX.Element => {
   const buildThirdLevel = (pages: PageItem[], route: string) => {
     return (
       pages.map(p => (
-        <Link href={`/${route}/${p.alias}`} legacyBehavior>
+        <Link key={p.alias} href={`/${route}/${p.alias}`} legacyBehavior>
           <a className={cn(styles.thirdLevel, {
-            [styles.thirdLevelActive] : `/${route}/${p.alias}` === router.asPath
+            [styles.thirdLevelActive] : `/${route}/${p.alias}` == router.asPath
           })}>
             {p.category}
           </a>

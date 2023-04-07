@@ -7,7 +7,7 @@ import CoursesIcon from "./icons/services.svg";
 import React from "react";
 
 export const firstLevelMenu: FirstLevelMenuItem[] = [
-  {  route: '[type]', name: 'Courses', icon: <ProductsIcon/>, id: TopLevelCategory.Courses },
+  {  route: 'courses', name: 'Courses', icon: <ProductsIcon/>, id: TopLevelCategory.Courses },
   {  route: 'services', name: 'Services', icon: <ServicesIcon/>, id: TopLevelCategory.Services },
   {  route: 'books', name: 'Books', icon: <BooksIcon/>, id: TopLevelCategory.Books },
   {  route: 'products', name: 'Products', icon: <CoursesIcon/>, id: TopLevelCategory.Products },

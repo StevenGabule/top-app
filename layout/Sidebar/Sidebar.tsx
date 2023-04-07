@@ -1,12 +1,15 @@
 import React from 'react';
 import { SidebarProps } from './Sidebar.props';
-import styles from './Sidebar.module.css';
-import cn from 'classnames';
 import { Menu } from '../menu/Menu';
+import Logo from '../../public/logo.svg';
+import cn from 'classnames';
+import styles from './Sidebar.module.css';
 
-export const Sidebar = ({...props}: SidebarProps) : JSX.Element => {
+export const Sidebar = ({className,...props}: SidebarProps) : JSX.Element => {
   return (
-    <div {...props}>
+    <div className={cn(className, styles.sidebar)} {...props}>
+      <Logo className={styles.logo} />
+      <div>Search</div>
       <Menu />
     </div>
   );

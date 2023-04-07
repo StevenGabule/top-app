@@ -12,7 +12,7 @@ import { TopLevelCategory } from "../interfaces/page.interface";
 
   export const AppContextProvider = ({menu, firstCategory, children} : PropsWithChildren<IAppContext>) : JSX.Element => {
     const [menuState, setMenuState] = useState<MenuItem[]>(menu);
-    const setMenu = (newMenu: MenuItem[]) => { return setMenuState(newMenu); };
+    const setMenu = (newMenu: MenuItem[]) => { setMenuState(newMenu); };
 
     return (
       <AppContext.Provider value={{ menu: menuState, firstCategory, setMenu }}>
